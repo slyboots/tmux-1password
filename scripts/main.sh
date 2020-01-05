@@ -60,7 +60,7 @@ get_op_items() {
 
   local -r JQ_FILTER="
     .[]
-    | [select(.overview.URLs | map(select(.u == \"sudolikeaboss://local\")) | length == 1)?]
+    | [select(.overview.URLs | map(select(.u)) | length == 1)?]
     | map([ .overview.title, .uuid ]
     | join(\",\"))
     | .[]
